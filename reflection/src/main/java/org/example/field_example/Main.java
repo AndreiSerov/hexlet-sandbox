@@ -2,7 +2,6 @@ package org.example.field_example;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
 import static java.lang.String.format;
 

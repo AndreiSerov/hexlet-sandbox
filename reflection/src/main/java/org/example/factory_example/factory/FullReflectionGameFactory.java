@@ -1,7 +1,6 @@
 package org.example.factory_example.factory;
 
 import org.example.factory_example.games.Game;
-import org.example.factory_example.games.GameComponent;
 import org.example.factory_example.util.ReflectionUtil;
 
 import java.util.Arrays;
