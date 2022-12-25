@@ -1,0 +1,22 @@
+### create
+POST {{host}}/contacts
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Kalia Balia",
+  "phoneNumber": "79123456789"
+}
+
+### get by id
+GET {{host}}/contacts/1
+
+### update
+POST {{host}}/contacts/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Kalia Balia",
+  "phoneNumber": "79123456789"
+}
