@@ -12,7 +12,6 @@ repositories {
     mavenCentral()
 }
 
-
 dependencies {
     runtimeOnly("com.h2database:h2:2.1.212")
     annotationProcessor("io.ebean:querybean-generator:12.15.0")
@@ -56,7 +55,7 @@ tasks {
 
 val generateMigrations by tasks.registering(JavaExec::class) {
     classpath = sourceSets["main"].runtimeClasspath
-    mainClass.set("hexlet.code.config.MigrationGenerator")
+    mainClass.set("org.example.config.MigrationGenerator")
 }
 
 application {
