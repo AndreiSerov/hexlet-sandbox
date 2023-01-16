@@ -1,0 +1,25 @@
+
+server:
+  port: ${PORT:8080}
+
+spring:
+
+  liquibase:
+    enabled: true
+    change-log: db/changelog/changelog-master.yml
+
+  jpa:
+    hibernate.ddl-auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+#logging:
+#  level:
+#    org.springframework: debug
+#    root: debug
+
