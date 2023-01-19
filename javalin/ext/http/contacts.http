@@ -1,5 +1,5 @@
 ### create
-POST {{host}}/contacts
+POST https://wiry-bikes-production.up.railway.app/contact
 Accept: application/json
 Content-Type: application/json
 
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ### get by id
-GET {{host}}/contacts/1
+GET wiry-bikes-production.up.railway.app/contact
 
 ### update
 POST {{host}}/contacts/1
