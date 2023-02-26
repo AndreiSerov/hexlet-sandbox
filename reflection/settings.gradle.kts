@@ -1,2 +1,2 @@
-rootProject.name = "reflection-demo"
+rootProject.name = "reflection"
 include("reflection")

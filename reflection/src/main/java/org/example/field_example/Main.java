@@ -53,4 +53,6 @@ public class Main {
         final Class<? extends String> aClass1 = "lajsdf".getClass();
         final Class<? extends Integer> aClass3 = Integer.valueOf(1234).getClass();
     }
+
+    record User(String name, String nick) {}
 }

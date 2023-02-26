@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<!--Допускается только один компонент на корневом уровне-->
+<VBox>
+    <Label text="Hello world!"/>
+    <Label text="This is a simple demo application."/>
+    <Button text="Click me!"/>
+</VBox>
