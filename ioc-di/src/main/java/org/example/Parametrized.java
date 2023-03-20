@@ -35,18 +35,20 @@ enum SomeEnum {
 
     public static void main(String[] args) {
 
-        short val = 1234;
+        final String s = "5";
 
-        final Short aShort = new Short(val);
-
-
-        final Class<Inner> clazz = Inner.class;
-        if (clazz.isAnnotationPresent(Parametrized.class)) {
-            final Parametrized annotation = clazz.getAnnotation(Parametrized.class);
-            final String value = annotation.value();
-
-            System.out.println(value + " world!");
-        }
+//        short val = 1234;
+//
+//        final Short aShort = new Short(val);
+//
+//
+//        final Class<Inner> clazz = Inner.class;
+//        if (clazz.isAnnotationPresent(Parametrized.class)) {
+//            final Parametrized annotation = clazz.getAnnotation(Parametrized.class);
+//            final String value = annotation.value();
+//
+//            System.out.println(value + " world!");
+//        }
     }
 }
 
