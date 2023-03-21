@@ -8,12 +8,15 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
-import java.lang.annotation.Inherited;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * @author andreiserov
  */
-@Component
+@SpringApplication
 public class Application {
 
     private final IUserInput input;
@@ -31,11 +34,9 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(); // IoC - container
-        context.scan("org.example");
-        context.refresh();
-
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Application.class); // IoC - container
         var application = context.getBean(Application.class);
+
         application.run();
     }
 
@@ -55,9 +56,9 @@ public class Application {
     }
 }
 
-
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
 @Component
-@Inherited
 @ComponentScan(
     basePackages = "org.example"
 )

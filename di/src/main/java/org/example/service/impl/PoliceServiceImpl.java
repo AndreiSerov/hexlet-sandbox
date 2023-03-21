@@ -2,11 +2,9 @@ package org.example.service.impl;
 
 import org.example.configuration.IUserInput;
 import org.example.configuration.ScannerInput;
-import org.example.configuration.ScannerUserInput;
 import org.example.service.FireService;
 import org.example.service.PoliceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +21,7 @@ public class PoliceServiceImpl implements PoliceService {
     private FireService fireService;
 
     // constructor injection
-    public PoliceServiceImpl(IUserInput input) {
+    public PoliceServiceImpl(@ScannerInput IUserInput input) {
         this.input = input;
     }
 
