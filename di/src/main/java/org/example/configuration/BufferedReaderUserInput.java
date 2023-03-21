@@ -1,21 +1,18 @@
 package org.example.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Scanner;
 
+@Primary
 @Component
-public class UserInput {
-
-    @Autowired
-    private Scanner sc;
+public class BufferedReaderUserInput implements IUserInput {
 
     private final BufferedReader reader;
 
-    public UserInput(BufferedReader reader) {
+    public BufferedReaderUserInput(BufferedReader reader) {
         this.reader = reader;
     }
 

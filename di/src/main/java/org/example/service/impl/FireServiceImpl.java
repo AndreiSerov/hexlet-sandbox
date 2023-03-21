@@ -1,12 +1,10 @@
 package org.example.service.impl;
 
-import org.example.configuration.UserInput;
+import org.example.configuration.IUserInput;
+import org.example.configuration.ScannerUserInput;
 import org.example.service.FireService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -17,9 +15,9 @@ public class FireServiceImpl implements FireService {
 
     private static List<String> words = List.of("fire", "boom");
 
-    private final UserInput input;
+    private final IUserInput input;
 
-    public FireServiceImpl(UserInput input) {
+    public FireServiceImpl(IUserInput input) {
         this.input = input;
     }
 

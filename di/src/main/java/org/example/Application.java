@@ -1,10 +1,9 @@
 package org.example;
 
-import org.example.configuration.UserInput;
+import org.example.configuration.IUserInput;
 import org.example.service.FireService;
 import org.example.service.PoliceService;
 import org.example.service.impl.HelloService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
@@ -17,13 +16,14 @@ import java.lang.annotation.Inherited;
 @Component
 public class Application {
 
-    private final UserInput input;
+    private final IUserInput input;
 
+    // add image with container
     private final HelloService helloService;
     private final PoliceService policeService;
     private final FireService fireService;
 
-    public Application(UserInput input, HelloService helloService, PoliceService policeService, FireService fireService) {
+    public Application(IUserInput input, HelloService helloService, PoliceService policeService, FireService fireService) {
         this.input = input;
         this.helloService = helloService;
         this.policeService = policeService;
@@ -31,7 +31,7 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(); // IoC - container
         context.scan("org.example");
         context.refresh();
 

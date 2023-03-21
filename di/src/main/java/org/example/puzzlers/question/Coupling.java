@@ -6,13 +6,34 @@ package org.example.puzzlers.question;
 public class Coupling {
 }
 
-class Item {
-    public float price;
-    public int quantity;
+interface ICartItem {
+    float total();
+}
+
+class CartItem implements ICartItem {
+    private float price;
+    private int quantity;
+
+    @Override
+    public float total() {
+        return price * quantity;
+    }
 }
 
 class Cart {
-    public Item[] items;
+    public ICartItem[] items;
+
+    public float totalPrice() {
+        float total = 0;
+        for (ICartItem item : items) {
+            total += item.total();
+        }
+        return total;
+    }
+}
+
+
+class OrderCaclucaltion {
 }
 
 class Order {
@@ -25,11 +46,6 @@ class Order {
     }
 
     public float orderTotal() {
-        float cartTotal = 0;
-        for (int i = 0; i < cart.items.length; i++) {
-            cartTotal += cart.items[i].price * cart.items[i].quantity;
-        }
-        cartTotal += cartTotal * salesTax;
-        return cartTotal;
+        return cart.totalPrice() * salesTax;
     }
 }
