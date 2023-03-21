@@ -3,6 +3,8 @@ package org.example.service.impl;
 import org.example.configuration.IUserInput;
 import org.example.configuration.ScannerUserInput;
 import org.example.service.FireService;
+import org.example.service.PoliceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,11 +17,12 @@ public class FireServiceImpl implements FireService {
 
     private static List<String> words = List.of("fire", "boom");
 
-    private final IUserInput input;
+    @Autowired
+    private IUserInput input;
 
-    public FireServiceImpl(IUserInput input) {
-        this.input = input;
-    }
+    // field injection
+    @Autowired
+    private PoliceService policeService;
 
     public boolean isFire(String s) {
         return words.contains(s.toLowerCase());
@@ -30,4 +33,15 @@ public class FireServiceImpl implements FireService {
         final String address = input.read();
         System.out.println("Fireman comes to your address: " + address);
     }
+
+
+
+    /**
+     * CGLIB and JDKProxy
+     * Жизненный цикл бина /
+     * Scope бинов /
+     *
+     * Сколько ваш сервисов держит запросов ?
+     *
+     */
 }

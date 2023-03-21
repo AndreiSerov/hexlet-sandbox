@@ -3,7 +3,9 @@ package org.example.service.impl;
 import org.example.configuration.IUserInput;
 import org.example.configuration.ScannerInput;
 import org.example.configuration.ScannerUserInput;
+import org.example.service.FireService;
 import org.example.service.PoliceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +20,10 @@ public class PoliceServiceImpl implements PoliceService {
 
     private final IUserInput input;
 
-    public PoliceServiceImpl(@ScannerInput IUserInput input) {
+    private FireService fireService;
+
+    // constructor injection
+    public PoliceServiceImpl(IUserInput input) {
         this.input = input;
     }
 
@@ -30,5 +35,11 @@ public class PoliceServiceImpl implements PoliceService {
         System.out.println("What is your address?");
         final String address = input.read();
         System.out.println("Police comes to your address: " + address);
+    }
+
+    // setter injection
+    @Autowired
+    public void setFireService(FireService fireService) {
+        this.fireService = fireService;
     }
 }
