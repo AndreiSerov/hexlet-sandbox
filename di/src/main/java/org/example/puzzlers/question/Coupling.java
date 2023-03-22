@@ -1,39 +1,20 @@
 package org.example.puzzlers.question;
 
-/**
- * @author andreiserov
- */
+
 public class Coupling {
 }
 
-interface ICartItem {
-    float total();
-}
 
-class CartItem implements ICartItem {
-    private float price;
-    private int quantity;
-
-    @Override
-    public float total() {
-        return price * quantity;
-    }
+/**
+ * Как уменьшить связанность следующих классов
+ */
+class Item {
+    public float price;
+    public int quantity;
 }
 
 class Cart {
-    public ICartItem[] items;
-
-    public float totalPrice() {
-        float total = 0;
-        for (ICartItem item : items) {
-            total += item.total();
-        }
-        return total;
-    }
-}
-
-
-class OrderCaclucaltion {
+    public Item[] items;
 }
 
 class Order {
@@ -46,6 +27,11 @@ class Order {
     }
 
     public float orderTotal() {
-        return cart.totalPrice() * salesTax;
+        float cartTotal = 0;
+        for (int i = 0; i < cart.items.length; i++) {
+            cartTotal += cart.items[i].price * cart.items[i].quantity;
+        }
+        cartTotal += cartTotal * salesTax;
+        return cartTotal;
     }
 }
