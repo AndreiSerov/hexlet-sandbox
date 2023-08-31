@@ -1,5 +1,6 @@
-package hexlet.teach;
+package hexlet.teach.archive;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,3 +39,15 @@ public class PasswordStorage {
     }
 }
 
+
+enum NodeName {
+    TYPE,
+    KEY,
+    VALUE,
+    OLD_VALUE;
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(NodeName.values()));
+    }
+
+}

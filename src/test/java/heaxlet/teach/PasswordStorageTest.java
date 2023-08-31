@@ -1,6 +1,6 @@
 package heaxlet.teach;
 
-import hexlet.teach.PasswordStorage;
+import hexlet.teach.archive.PasswordStorage;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

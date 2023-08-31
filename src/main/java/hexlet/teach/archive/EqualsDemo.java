@@ -1,9 +1,14 @@
-package hexlet.teach;
+package hexlet.teach.archive;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author andreiserov
@@ -18,9 +23,11 @@ public class EqualsDemo {
 
         boolean eq1 = vasya.equals(petya);      // nameEquals and surnameEquals
         boolean eq2 = petya.equals(petya2);     // nameEquals and surnameEquals
+        final boolean kalia_ = petya.name.equals("kalia ");
+        final boolean lkjasdf = petya.surname.equals("lkjasdf");
         boolean eq3 = petya.equals(petyaClone); // == cause
 
-//        vasya.name = "Petya";
+//        vasya.field = "Petya";
 //        vasya.surname = "Petrov";
 //        boolean eq4 = vasya.equals(petya);      // nameEquals and surnameEquals
 
@@ -32,7 +39,7 @@ public class EqualsDemo {
         boolean eq1Emb = vasyaEmb.equals(petyaEmb);
         boolean eq2Emb = petyaEmb.equals(petya2Emb);
 
-//        vasyaEmb.name = "Petya";
+//        vasyaEmb.field = "Petya";
 //        vasyaEmb.surname = "Petrov";
 //        boolean eq3Emb = vasyaEmb.equals(petyaEmb);
 
@@ -65,7 +72,8 @@ public class EqualsDemo {
 
 
 class Person {
-    @Nullable
+
+    @NotNull
     public String name;
 
     @Nullable
@@ -85,7 +93,7 @@ class Person {
 
         final Person oPerson = (Person) o;
 
-        final boolean isNamesEquals = this.name != null && this.name.equals(oPerson.name);
+        final boolean isNamesEquals = this.name.equals(oPerson.name);
         final boolean isSurnamesEquals = this.surname != null && this.surname.equals(oPerson.surname);
         if (isNamesEquals && isSurnamesEquals ) return true;
 
@@ -101,6 +109,7 @@ class Person {
 }
 
 class PersonEmbeddedEquals {
+    private static boolean verySeriousCondition = false;
     public String name;
     public String surname;
 
@@ -108,12 +117,62 @@ class PersonEmbeddedEquals {
         this.name = name;
         this.surname = surname;
     }
+
+    public static void main(String[] args) {
+        String str = null;
+
+
+        final Optional<String> optStr = Optional.ofNullable(str);
+
+
+        final List<Integer> list = List.of(1, 2, 3);
+
+
+
+        char[] chars;
+        if (optStr.isPresent()) {
+            chars = optStr.get().toCharArray();
+        }
+
+        if (Objects.equals(str, "kalia balia")) System.out.println("String is kalia balia");
+
+
+        final char character = (char) 2000;
+        System.out.println((int) '-');
+        System.out.println((int) ' ');
+        System.out.println((int) ',');
+        System.out.println((int) ';');
+        System.out.println((int) ' ');
+
+        System.out.println(character);
+
+
+
+        final PersonRecord obj = new PersonRecord("field", null);
+        if (obj.field().equals("kalia balia")) {
+            doSomething();
+        }
+    }
+
+    static <T> List<T> collectionMethod(Collection<T> input) {
+        if (verySeriousCondition)
+            return List.of();
+        // other logic
+
+
+        return input.stream().toList();
+    }
+
+    @Nullable
+    private static String doSomething() {
+        return false ? "kalia balia" : null;
+    }
 }
 
 
 record PersonRecord(
-    @Nullable
-    String name,
+    @NotNull
+    String field,
     @Nullable
     String surname
 ) {}
@@ -211,7 +270,7 @@ class MapDemo {
         final Inner two = new Inner(2);
         final Inner sameOne = new Inner(1);
 
-        var map = new HashMap<Inner, String>();
+        Map map = new HashMap<Inner, String>();
         map.put(one, "one");
         map.put(two, "two");
         map.put(sameOne, "sameOne");
