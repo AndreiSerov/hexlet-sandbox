@@ -13,9 +13,8 @@ datasource:
     url: jdbc:h2:file:./db
 
 ebean:
-  ddl:
-    run: true
-    generate: true
-#    seedSql: seed.sql
-#  migration:
+#  ddl:
 #    run: true
+#    generate: true
+  migration:
+    run: true

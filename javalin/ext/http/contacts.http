@@ -20,3 +20,15 @@ Content-Type: application/json
   "name": "Kalia Balia",
   "phoneNumber": "79123456789"
 }
+
+### update
+POST {{host}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Andrei",
+  "lastName": "Serov"
+}
+

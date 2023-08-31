@@ -3,7 +3,9 @@ package org.example;
 import org.example.configuration.IUserInput;
 import org.example.service.FireService;
 import org.example.service.PoliceService;
+import org.example.service.impl.CountryFire;
 import org.example.service.impl.HelloService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
@@ -24,9 +26,13 @@ public class Application {
     // add image with container
     private final HelloService helloService;
     private final PoliceService policeService;
-    private final FireService fireService;
+    private final @Qualifier("country") FireService fireService;
 
-    public Application(IUserInput input, HelloService helloService, PoliceService policeService, FireService fireService) {
+    public Application(IUserInput input,
+                       HelloService helloService,
+                       PoliceService policeService,
+                       @CountryFire FireService fireService
+    ) {
         this.input = input;
         this.helloService = helloService;
         this.policeService = policeService;
@@ -43,7 +49,9 @@ public class Application {
     private void run() {
         while (true) {
             final String s = input.read();
-            if (s.startsWith("exit")) { break; }
+            if (s.startsWith("exit")) {
+                break;
+            }
 
             if (policeService.isPolice(s)) {
                 policeService.call();
@@ -64,3 +72,4 @@ public class Application {
 )
 @interface SpringApplication {
 }
+

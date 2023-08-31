@@ -20,7 +20,7 @@ public class AppConfig {
 
 
     private static final String PORT_FROM_ENV = System.getenv("PORT");
-    private static final int PORT = (PORT_FROM_ENV != null) ? Integer.parseInt(PORT_FROM_ENV) : 7000;
+    private static final int PORT = (PORT_FROM_ENV != null) ? Integer.parseInt(PORT_FROM_ENV) : 8080;
 
     private static final ObjectMapper mapper = new ObjectMapper()
         .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)

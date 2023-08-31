@@ -5,6 +5,7 @@ import org.example.configuration.ScannerInput;
 import org.example.service.FireService;
 import org.example.service.PoliceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class PoliceServiceImpl implements PoliceService {
 
     private final IUserInput input;
 
-    private FireService fireService;
+    private @Qualifier("country") FireService fireService;
 
     // constructor injection
     public PoliceServiceImpl(@ScannerInput IUserInput input) {
@@ -37,7 +38,7 @@ public class PoliceServiceImpl implements PoliceService {
 
     // setter injection
     @Autowired
-    public void setFireService(FireService fireService) {
+    public void setFireService(@Qualifier("country") FireService fireService) {
         this.fireService = fireService;
     }
 }

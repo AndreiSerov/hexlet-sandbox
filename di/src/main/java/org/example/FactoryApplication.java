@@ -1,14 +1,6 @@
 package org.example;
 
 import org.example.configuration.ScannerUserInput;
-import org.example.service.FireService;
-import org.example.service.PoliceService;
-import org.example.service.impl.FireServiceImpl;
-import org.example.service.impl.HelloService;
-import org.example.service.impl.PoliceServiceImpl;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 /**
  * @author andreiserov
@@ -25,7 +17,7 @@ public class FactoryApplication {
 //
 //        this.helloService = new HelloService();
 //        this.policeService = new PoliceServiceImpl(input);
-//        this.fireService = new FireServiceImpl(input);
+//        this.fireService = new CityFireServiceImpl(input);
 //    }
 
     public static void main(String[] args) {
