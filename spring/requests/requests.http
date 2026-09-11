@@ -1,0 +1,21 @@
+###
+POST localhost:8080/persons
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcHJpbmdfYmxvZyIsImlhdCI6MTY2NzQ4OTc5NSwiZXhwIjoxNjY3NDg5ODgyLCJ1c2VybmFtZSI6ImFkbWluMiJ9.frUcFXLQSn5B4CvoXIshpwamu5SNurRqxBmDr6pAn-U
+
+{
+  "firstName": "admin3",
+  "lastName": "admin3",
+  "phone": [
+    "1234567890",
+    "234567",
+    "34567"
+  ]
+}
+
+###
+GET localhost:8080/persons
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzcHJpbmdfYmxvZyIsImlhdCI6MTY2NzQ4OTc5NSwiZXhwIjoxNjY3NDg5ODgyLCJ1c2VybmFtZSI6ImFkbWluMiJ9.frUcFXLQSn5B4CvoXIshpwamu5SNurRqxBmDr6pAn-U
+
+
+

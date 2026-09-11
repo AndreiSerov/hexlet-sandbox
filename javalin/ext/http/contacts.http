@@ -1,0 +1,34 @@
+### create
+POST https://wiry-bikes-production.up.railway.app/contact
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Kalia Balia",
+  "phoneNumber": "79123456789"
+}
+
+### get by id
+GET wiry-bikes-production.up.railway.app/contact
+
+### update
+POST {{host}}/contacts/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Kalia Balia",
+  "phoneNumber": "79123456789"
+}
+
+### update
+POST {{host}}/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Andrei",
+  "lastName": "Serov"
+}
+
