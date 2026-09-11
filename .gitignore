@@ -1,0 +1,16 @@
+# Build output
+build/
+out/
+target/
+
+# Gradle
+.gradle/
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS
+.DS_Store
