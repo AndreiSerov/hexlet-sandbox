@@ -1,5 +1,6 @@
 package hexlet.teach.sort;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class BubleSortTest {
     int[] expectedArr = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
     @Test
+    @Disabled("Учебный пример для дебага — падает намеренно")
     void commonDebug() {
         final int[] ints = {1, 2, 1000, 9, 8, 7, 6, 5, 4, 3,};
 
@@ -32,6 +34,7 @@ public class BubleSortTest {
     }
 
     @Test
+    @Disabled("Учебный пример для дебага — падает намеренно")
     void commonCondition() throws IOException {
         int[] ints = toIntArray(readFile("ints.txt").split(" "));
 
@@ -39,7 +42,9 @@ public class BubleSortTest {
         assertArrayEquals(expectedArr, ints);
     }
 
-    @Test void changeValue() throws IOException {
+    @Test
+    @Disabled("Учебный пример для дебага — падает намеренно")
+    void changeValue() throws IOException {
         int[] ints = toIntArray(readFile("mistake_ints.txt").split(" "));
 
         BubleSort.sort(ints);

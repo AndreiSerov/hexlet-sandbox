@@ -3,11 +3,11 @@ package heaxlet.teach
 
 import io.ktor.client.*
 import io.ktor.client.engine.android.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
+import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
+import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
@@ -20,8 +20,8 @@ object KtorClient {
 //        defaultRequest {
 //            header(AUTHORIZATION_HEADER, "BEARER $API_KEY")
 //        }
-        install(JsonFeature) {
-            serializer = KotlinxSerializer(
+        install(ContentNegotiation) {
+            json(
                 kotlinx.serialization.json.Json {
                     isLenient = true
                     ignoreUnknownKeys = true
@@ -45,19 +45,19 @@ fun main() {
 
 
     val res = runBlocking {
-        val kla: HttpStatement = client.get("https://ktor.io/docs/welcome.html")
+        val kla: HttpStatement = client.prepareGet("https://ktor.io/docs/welcome.html")
         withContext(Dispatchers.IO) {
             println("kalia blai before")
             Thread.sleep(10L)
-            kla
+            println(kla.body<String>().split("\n")[0])
         }
 
-        val response = client.request<HttpStatement>("https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=Populus&rvslots=*&rvprop=content&formatversion=2") {
+        val response = client.prepareRequest("https://en.wikipedia.org/w/api.php?action=query&prop=revisions&titles=Populus&rvslots=*&rvprop=content&formatversion=2") {
             method = HttpMethod.Get
         }
             .execute()
-        response.readText(Charsets.UTF_8)
+        response.bodyAsText(Charsets.UTF_8)
     }
 
-    println("kalia blai after")
+    println("kalia after")
 }

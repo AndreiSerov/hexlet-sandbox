@@ -45,8 +45,8 @@ public class Fib {
 
     public static BigInteger getFibFromStream(long n) {
         return fibStream(n)
-            .limit(n - 1)
-            .skip(n - 2)
+            .limit(n + 1)
+            .skip(n)
             .findFirst()
             .get()[0];
     }
