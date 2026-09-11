@@ -16,10 +16,15 @@ public class BestTimeToBuyAndSellStock {
      * Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
      */
     public int maxProfit(int[] prices) {
-        // todo
+        int minPrice = Integer.MAX_VALUE;
+        int best = 0;
 
+        for (int price : prices) {
+            minPrice = Math.min(minPrice, price);
+            best = Math.max(best, price - minPrice);
+        }
 
-        return 0;
+        return best;
     }
 
 
